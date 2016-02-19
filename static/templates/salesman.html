@@ -1,0 +1,56 @@
+<ion-view title="Create New Salesman">
+    <ion-nav-buttons side="right">
+        <button class="button button-energized" ng-click="logout()">
+            LogOut
+        </button>
+           </ion-nav-buttons>
+
+
+    <ion-content>
+
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+     <!--<h2>Create Salesman</h2>-->
+        <form ng-submit="CreateSalesman($event)">
+            <div class="list">
+                <label class="item item-input">
+                    <!--<span class="input-label">First Name</span>-->
+                    <input placeholder="Enter First Name" type="text" ng-model = "sales.FirstName">
+                </label>
+                <label class="item item-input">
+                    <!--<span class="input-label">Last Name</span>-->
+                    <input placeholder="Enter Last Name" type="text" ng-model = "sales.LastName">
+                </label>
+                <label class="item item-input">
+                    <!--<span class="input-label">Email</span>-->
+                    <input placeholder="Enter New Email" type="text"  ng-model = "sales.Email">
+                </label>
+                <label class="item item-input">
+                    <!--<span class="input-label">Password</span>-->
+                    <input placeholder="Enter New Password" type="password" ng-model = "sales.Password">
+                </label>
+            </div>
+
+
+            <div class="button-bar">
+                <button class="button button-balanced" type="submit" >Create Salesman</button>
+
+            </div>
+        </form>
+        <div class="row header">
+            <div class="col">Salesman Name</div>
+            <div class="col">Salesman Id</div>
+            <div class="col">Salesman Last Name</div>
+            <div class="col">Salesman Id</div>
+            <div class="col">Product Password</div>
+            <div class="row" ng-repeat="data in ctrl.data">
+                <div class="col">{{response.data.salesman12}}</div>
+                <div class="col">{{data.code}}</div>
+                <div class="col">{{data.limit}}</div>
+                <div class="col">{{data.account}}</div>
+                <div class="col">{{data.account}}</div>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

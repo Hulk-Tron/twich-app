@@ -1,0 +1,41 @@
+
+    <ion-view title="Create New Company">
+        <ion-nav-buttons side="right">
+            <button class="button button-energized" ng-click="logout()">
+                LogOut
+            </button>
+        </ion-nav-buttons>
+    <ion-content>
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+
+        <form ng-submit="SaveCompany($event)">
+            <div class="list">
+                <label class="item item-input">
+                    <!--<span class="input-label">Company Name</span>-->
+                    <input placeholder="Enter Company Name" type="text" ng-model = "com.name">
+                </label>
+                <label class="item item-input">
+                    <!--<span class="input-label">Company Name</span>-->
+                    <input placeholder="Enter Catagory" type="text" ng-model = "com.catory">
+                </label>
+                <label class="item item-input">
+                    <!--<span class="input-label">Company Name</span>-->
+                    <input placeholder="Enter Company Location" type="text" ng-model = "com.loc">
+                </label>
+            </div>
+
+
+            <div class="button-bar">
+                <button class="button button-balanced" type="submit" >Create Company</button>
+                </div>
+            </form>
+             <!--<div class="list list-inset">-->
+
+              <!--<div class="item" ng-repeat="n in com1">-->
+                   <!--You have created {{n.com}} has {{m.loc}}-->
+              <!--</div>-->
+
+        <!--</div>-->
+    </ion-content>
+    </ion-view>

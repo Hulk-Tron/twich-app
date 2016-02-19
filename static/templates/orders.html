@@ -1,0 +1,54 @@
+<ion-view title="Create Product Page">
+    <ion-nav-buttons side="right">
+        <button class="button button-energized" ng-click="logout()">
+            LogOut
+        </button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+
+        <form ng-submit="ProductCreate($event)">
+            <div class="list">
+                <label class="item item-input">
+                    <!--<span class="input-label">First Name</span>-->
+                    <input placeholder="Enter Product Company Name" type="text" ng-model = "prod.cname">
+                </label>
+                <!--<label class="item item-input">-->
+                    <!--&lt;!&ndash;<span class="input-label">Last Name</span>&ndash;&gt;-->
+                    <!--<input placeholder="Enter Product Catagory" type="text" ng-model = "prod.c">-->
+                <!--</label>-->
+                <label class="item item-input item-select">
+                    <div> Select Catagory</div>
+                    <select>
+                        <option  selected>Beauty</option>
+                        <option >Technology</option>
+                        <option>Cloths</option>
+                        <option>Fragnance</option>
+                        <option>Cockery</option>
+                        <option>Electronic</option>
+                        <option>HouseHold</option>
+                    </select>
+
+                </label>
+                <label class="item item-input">
+                    <!--<span class="input-label">Email</span>-->
+                    <input placeholder="Enter Product Name" type="text"  ng-model = "prod.name">
+                </label>
+                <label class="item item-input">
+                    <!--<span class="input-label">Password</span>-->
+                    <input placeholder="Enter Product Price" type="number" ng-model = "prod.price">
+                </label>
+                <label class="item item-input">
+                    <!--<span class="input-label">Password</span>-->
+                    <input placeholder="Enter Product Stock" type="number" ng-model = "prod.stk">
+                </label>
+            </div>
+
+
+            <div class="button-bar">
+                <button class="button button-balanced" type="submit" >Create Products</button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

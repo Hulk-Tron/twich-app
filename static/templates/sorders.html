@@ -1,0 +1,33 @@
+<ion-view title="Check Salesman Request">
+    <ion-nav-buttons side="right">
+        <button class="button button-energized" ng-click="logout()">
+            LogOut
+        </button>
+    </ion-nav-buttons>
+    <ion-content>
+
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+
+
+
+        <h2> Salesman Request Page</h2>
+        <div class="row header">
+            <div class="col">Salesman Name</div>
+            <div class="col">Salesman Id</div>
+            <div class="col">Company Name</div>
+            <div class="col">Product Name</div>
+            <div class="col">Product Price </div>
+            <div class="col">Product Quantity </div>
+            <div class="row" ng-repeat="data in ctrl.data">
+                <div class="col">{{data.name}}</div>
+                <div class="col">{{data.code}}</div>
+                <div class="col">{{data.limit}}</div>
+                <div class="col">{{data.account}}</div>
+                <div class="col">{{data.account}}</div>
+            </div>
+
+        </div>
+    </ion-content>
+
+</ion-view>
