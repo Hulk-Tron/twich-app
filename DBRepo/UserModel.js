@@ -140,11 +140,12 @@
     return deferred.promise;
 }
 exports.saveproduct = saveproduct;
-function findsales(query) {
-    //console.log("this is query data");
-    //console.log(query);
-    var deferred = q.defer();
-    salesman1
+     function findsales(query) {
+      //console.log("this is query data");
+      //console.log(query);
+     var deferred = q.defer();
+         //console.log(query)
+     salesman1
         .findOne(query, function (err,record) {
             if (err) {
                 console.log("Error in finding User");
@@ -152,31 +153,42 @@ function findsales(query) {
                 deferred.reject("Error in finding User");
             }
             else {
-                //console.log("this is record");
-                //console.log(record);
+                console.log("this is record");
+                console.log(record);
                 deferred.resolve(record);
             }
         });
     return deferred.promise;
 }
 exports.findsales = findsales;
-//function finddata(query) {
-//    //console.log("this is query data");
-//    //console.log(query);
-//    var deferred = q.defer();
-//    UserModel
-//        .findOne(query, function (err,record) {
-//            if (err) {
-//                console.log("Error in finding User");
-//                console.log(err);
-//                deferred.reject("Error in finding User");
-//            }
-//            else {
-//                //console.log("this is record");
-//                console.log(record);
-//                deferred.resolve(record);
-//            }
-//        });
-//    return deferred.promise;
-//}
-//exports.finddata = finddata;
+function finddata(query) {
+    var deferred = q.defer();
+    salesman1.find({},function(err, docs){
+        //res.send('index',{docs:docs});
+        deferred.resolve(docs)
+        //console.log(docs)
+    });
+  return deferred.promise;
+}
+exports.finddata = finddata;
+     function findcom(query) {
+     var deferred = q.defer();
+         Companies.find({},function(err, docs){
+        //res.send('index',{docs:docs});
+        deferred.resolve(docs)
+        //console.log(docs)
+    });
+    return deferred.promise;
+}
+exports.findcom = findcom;
+function proddata(query) {
+    var deferred = q.defer();
+    poc1.find({},function(err, docs){
+        //res.send('index',{docs:docs});
+        deferred.resolve(docs);
+        //console.log(docs)
+    });
+    return deferred.promise;
+}
+exports.proddata =  proddata;
+

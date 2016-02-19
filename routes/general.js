@@ -110,10 +110,10 @@ router.post("/sales", function (req, res){
       });
 
 
-router.post("/prod", function (req, res) {
+     router.post("/prod", function (req, res) {
 
-    var usersRef = ref.child("Product");
-    usersRef.child("Products").push({
+     var usersRef = ref.child("Product");
+     usersRef.child("Products").push({
         cname: req.body.data.cname,
         name: req.body.data.name,
         price:req.body.data.price,
@@ -134,9 +134,9 @@ router.post("/prod", function (req, res) {
         }
     });
 });
-       router.post("/saleslogin", function (req, res) {
-       console.log("On Login In");
-       var user1 = req.body.data;
+       router.post("/salesmanlogin", function (req, res) {
+       //console.log("On Login In");
+        var user1 = req.body.data;
         //console.log(user1.email);
         UserModel_1.findsales(user1.email)
         .then(function (userInstance) {
@@ -145,7 +145,7 @@ router.post("/prod", function (req, res) {
                 return;
             }
             if (userInstance.Password == user1.password) {
-                res.send({ message: "Logged In successfully", token: userInstance.FirebaseToken });
+                res.send({ message: "Logged In successfully", status : true });
             }
             else {
                 res.send("Wrong Password");
@@ -157,17 +157,23 @@ router.post("/prod", function (req, res) {
      router.get("/salesmenData", function (req, res) {
          //console.log("On Login In");
          //console.log(user1.email);
-         //UserModel_1.finddata(req)
-         //   .then(function (userInstance) {
-         //        res.send({ status: true, message: userInstance })
-         //   }, function (err) {
-         //       res.send({ status: false, message: err });
-         //   });
-         //});
-         ref.on("value", function (snapshot) {
-             console.log(snapshot.val())
-             var imi = snapshot.val()
-             res.send({status: true, data: imi})
+         UserModel_1.finddata(req)
+            .then(function (userInstance) {
+                 res.send({ status: true, message: userInstance })
+            }, function (err) {
+                res.send({ status: false, message: err });
+            });
+
+         //ref.on("value", function (snapshot) {
+         //    console.log(snapshot.val())
+         //    var imi = snapshot.val()
+         //    res.send({status: true, data: imi})
+
+
+
+
+
+
 
              //.then(function (userInstance){
              //     res.send({ status: true, message: userInstance })
@@ -175,7 +181,27 @@ router.post("/prod", function (req, res) {
              //    res.send({ status: false, message: err });
              //});
          })
+          router.get("/comdata", function (req, res) {
+              //console.log("On Login In");
+              //console.log(user1.email);
+              console.log(req)
+              UserModel_1.findcom(req)
+                  .then(function (userInstance) {
+                      res.send({status: true, message: userInstance})
+                  }, function (err) {
+                      res.send({status: false, message: err});
+                  });
+          })
+     router.get("/Proddata", function (req, res) {
+    //console.log("On Login In");
+    //console.log(user1.email);
+        console.log(req)
+       UserModel_1.proddata(req)
+        .then(function (userInstance) {
+            res.send({status: true, message: userInstance})
+        }, function (err) {
+            res.send({status: false, message: err});
+        });
+})
 
-
-     })
 module.exports = router;

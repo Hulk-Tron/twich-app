@@ -50,5 +50,20 @@
                 <button class="button button-balanced" type="submit" >Create Products</button>
             </div>
         </form>
+        <h2>List of Companies Product</h2>
+        <div class="row header">
+            <div class="col"><b>Company Name</b></div>
+            <div class="col"><b>Product Name</b></div>
+            <div class="col"><b>Product Price</b></div>
+            <div class="col"><b>Product Stock</b></div>
+        </div>
+        <div class="row" ng-repeat="(key,value) in prd ">
+            <div class="col">{{value.cname}}</div>
+            <div class="col">{{value.name}}</div>
+            <div class="col">{{value.price}}</div>
+            <div class="col">{{value.stk}}</div>
+            <!--</div>-->
+
+        </div>
     </ion-content>
 </ion-view>

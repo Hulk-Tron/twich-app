@@ -28,13 +28,13 @@ angular.module('starter', ['ionic'])
     $stateProvider
       .state("login", {
         url: "/login",
-        templateUrl: "/templates/login.html",
+        templateUrl: "templates/login.html",
         //method : 'jsonp',
         controller: "loginctrl"
       })
       .state("home", {
         url: "/home",
-        templateUrl: "/templates/home.html",
+        templateUrl: "templates/home.html",
         //method : 'jsonp',
         controller: "homectrl"
       })
@@ -47,7 +47,7 @@ angular.module('starter', ['ionic'])
       //})
 
 
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise("/login");
   })
   //.factory("httpInterceptor", function(){
   //  return {

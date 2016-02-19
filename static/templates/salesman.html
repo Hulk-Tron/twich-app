@@ -37,19 +37,21 @@
 
             </div>
         </form>
+        <h2>List of Salesman's</h2>
         <div class="row header">
-            <div class="col">Salesman Name</div>
-            <div class="col">Salesman Id</div>
-            <div class="col">Salesman Last Name</div>
-            <div class="col">Salesman Id</div>
-            <div class="col">Product Password</div>
-            <div class="row" ng-repeat="data in ctrl.data">
-                <div class="col">{{response.data.salesman12}}</div>
-                <div class="col">{{data.code}}</div>
-                <div class="col">{{data.limit}}</div>
-                <div class="col">{{data.account}}</div>
-                <div class="col">{{data.account}}</div>
+
+            <div class="col"><b>Salesman FristName</b></div>
+            <div class="col"><b>Salesman LastName</b></div>
+            <div class="col"><b>Saleman Email</b></div>
+            <div class="col"><b>Saleman Password</b></div>
             </div>
+            <div class="row" ng-repeat="(key,value) in respon">
+                <div class="col">{{value.FirstName}}</div>
+                <div class="col">{{value.LastName}}</div>
+                <div class="col">{{value.Email}}</div>
+                <div class="col">{{value.Password}}</div>
+
+            <!--</div>-->
 
         </div>
     </ion-content>

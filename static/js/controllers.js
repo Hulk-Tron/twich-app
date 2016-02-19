@@ -94,6 +94,18 @@
 
 
     .controller("CompanyCtrl",function($scope,$http,$state){
+            $http.get("/api/comdata")
+                .success(function(response){
+                    //console.log(response.data);
+                    //console.log(response);
+                    $scope.com = response.message;
+                })
+                .error(function(){
+                    console.log("Error in finding User");
+                });
+
+
+
             $scope.com = {};
                 //console.log(com)
             $scope.logout = function($scope){
@@ -126,7 +138,18 @@
             .error(function (err) {
                 console.log(err)
             })}})
-        .controller("OrdersCtrl",function($scope,$state){
+        .controller("OrdersCtrl",function($scope,$state,$http){
+            $http.get("/api/Proddata")
+                .success(function(response){
+                    //console.log(response.data);
+                    $scope.prd = response.message
+                })
+                .error(function(){
+                    console.log("Error in finding User");
+                });
+
+
+
             $scope.logout = function($scope){
                 //delete localstorage;
 
@@ -163,7 +186,8 @@
             $http.get("/api/salesmenData")
                 .success(function(response){
                     //console.log(response.data);
-                    $scope.response = response.data
+                    console.log(response.message)
+                    $scope.respon = response.message;
                 })
                 .error(function(){
                     console.log("Error in finding User");

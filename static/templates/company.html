@@ -30,6 +30,19 @@
                 <button class="button button-balanced" type="submit" >Create Company</button>
                 </div>
             </form>
+        <h2>List of Companies</h2>
+        <div class="row header">
+            <div class="col"><b>Company Name</b></div>
+            <div class="col"><b>Company Catagory</b></div>
+            <div class="col"><b>Company Location</b></div>
+        </div>
+        <div class="row" ng-repeat="(key,value) in com ">
+            <div class="col">{{value.name}}</div>
+            <div class="col">{{value.catory}}</div>
+            <div class="col">{{value.loc}}</div>
+            <!--</div>-->
+
+        </div>
              <!--<div class="list list-inset">-->
 
               <!--<div class="item" ng-repeat="n in com1">-->

@@ -7,12 +7,11 @@ angular.module("starter")
     $scope.doLogin = function(user){
       //console.log(user)
       ////user = $scope.user;
-      $http.post("http://localhost:8080/api/saleslogin", {data : user})
+      $http.post("http://localhost:8080/api/salesmanlogin", {data : user})
         .success(function(response){
-          if(response.token){
-            localStorage.setItem('token', response.token);
+
             $state.go("home");
-          }
+
         })
         .error(function(err){
           console.log(err);
@@ -20,6 +19,15 @@ angular.module("starter")
     };
 
   })
-  .controller("homectrl",function(){
+  .controller("homectrl",function($http,$scope){
+    $http.get("http://localhost:8080/api/Proddata")
+      .success(function(response){
+        //console.log(response.data);
+        //console.log(response);
+        $scope.com = response.message;
+      })
+      .error(function(){
+        console.log("Error in finding User");
+      });
 
     });
