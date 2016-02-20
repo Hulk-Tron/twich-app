@@ -85,7 +85,7 @@
        });
 
 
-router.post("/sales", function (req, res){
+              router.post("/sales", function (req, res){
               var usersRef = ref.child("salesman12");
               usersRef.child("salesman").push({
               email: req.body.data.Email,
@@ -136,9 +136,9 @@ router.post("/sales", function (req, res){
 });
        router.post("/salesmanlogin", function (req, res) {
        //console.log("On Login In");
-        var user1 = req.body.data;
-        //console.log(user1.email);
-        UserModel_1.findsales(user1.email)
+           var user1 = req.body.data;
+        console.log(user1.email);
+           UserModel_1.findsales(user1.email)
         .then(function (userInstance) {
             if (!userInstance) {
                 res.send("No user found with supplied email");
@@ -195,7 +195,7 @@ router.post("/sales", function (req, res){
      router.get("/Proddata", function (req, res) {
     //console.log("On Login In");
     //console.log(user1.email);
-        console.log(req)
+        console.log(req);
        UserModel_1.proddata(req)
         .then(function (userInstance) {
             res.send({status: true, message: userInstance})

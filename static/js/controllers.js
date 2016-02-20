@@ -6,7 +6,7 @@
 
 
     angular.module('starter')
-    .controller("loginCtrl", function($scope, $http, $state){
+    .controller("loginCtrl", function($scope, $http, $state,$rootScope){
         //$scope.user = {};
         $scope.doLogin = function(user){
             console.log(user)
@@ -17,7 +17,7 @@
                         alert("Welcome Admin")
                         localStorage.setItem('token', response.token);
 
-                        $scope.data=response;
+                        $rootScope.data=response;
                         $state.go("home");
                     }
                 })
@@ -62,10 +62,12 @@
 
 
 
-    .controller("homeCtrl", function($scope, $http,$state){
-           $scope.logout = function($scope){
+    .controller("homeCtrl", function($scope, $http,$state,$rootScope){
+           var data = $rootScope.data;
+            console.log(data)
+            $scope.logout = function($scope){
                //delete localstorage;
-                 console.log(respon)
+               //  console.log(respon)
                localStorage.clear()
                //.success(function(){
                    $state.go("login");
@@ -79,8 +81,8 @@
            },
         $http.get("/api/salesmenData")
             .success(function(response){
-                //console.log(response.data);
-                this.respon = response.data
+                console.log(response.data);
+                $scope.respon = response;
             })
             .error(function(){
                 console.log("Error in finding User");
@@ -98,7 +100,7 @@
                 .success(function(response){
                     //console.log(response.data);
                     //console.log(response);
-                    $scope.com = response.message;
+                   $scope.com = response.message;
                 })
                 .error(function(){
                     console.log("Error in finding User");
@@ -139,6 +141,18 @@
                 console.log(err)
             })}})
         .controller("OrdersCtrl",function($scope,$state,$http){
+            $http.get("/api/comdata")
+                .success(function(response){
+                    //console.log(response.data);
+                    //console.log(response);
+                    $scope.com = response.message;
+                })
+                .error(function(){
+                    console.log("Error in finding User");
+                });
+
+
+
             $http.get("/api/Proddata")
                 .success(function(response){
                     //console.log(response.data);

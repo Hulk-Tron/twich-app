@@ -1,10 +1,11 @@
 <ion-view title="Create Product Page">
     <ion-nav-buttons side="right">
-        <button class="button button-energized" ng-click="logout()">
+        <button class="button button-positive" ng-click="logout()">
             LogOut
         </button>
     </ion-nav-buttons>
     <ion-content>
+
         <ion-nav-back-button>
         </ion-nav-back-button>
 
@@ -19,16 +20,10 @@
                     <!--<input placeholder="Enter Product Catagory" type="text" ng-model = "prod.c">-->
                 <!--</label>-->
                 <label class="item item-input item-select">
-                    <div> Select Catagory</div>
+                    <div> Select Product Company Name </div>
                     <select>
-                        <option  selected>Beauty</option>
-                        <option >Technology</option>
-                        <option>Cloths</option>
-                        <option>Fragnance</option>
-                        <option>Cockery</option>
-                        <option>Electronic</option>
-                        <option>HouseHold</option>
-                    </select>
+                        <option ng-repeat="(key,value) in com" >{{value.name}}</option>
+                                            </select>
 
                 </label>
                 <label class="item item-input">
@@ -50,7 +45,7 @@
                 <button class="button button-balanced" type="submit" >Create Products</button>
             </div>
         </form>
-        <h2>List of Companies Product</h2>
+        <h2>Companies Product</h2>
         <div class="row header">
             <div class="col"><b>Company Name</b></div>
             <div class="col"><b>Product Name</b></div>

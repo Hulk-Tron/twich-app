@@ -1,15 +1,36 @@
 <ion-view title="Twich AdminPanel">
+  <ion-nav-buttons side="right">
+    <button class="button button-positive" ng-click="logout()">
+      LogOut
+    </button>
+  </ion-nav-buttons>
 
 
 
   <ion-content>
-  <h1>hello imran</h1>
-    <ul ng-repeat="(key,value) in com">
-      <li>{{value.cname}}</li>
-      <li>{{value.name}}</li>
-      <li>{{value.price}}</li>
-      <li>{{value.stk}}</li>
-    </ul>
+  <h1>Welcome Salesman</h1>
+    <h2>Orders Page</h2>
+    <!--<ul ng-repeat="(key,value) in com">-->
+      <!--<li>{{value.cname}}</li>-->
+      <!--<li>{{value.name}}</li>-->
+      <!--<li>{{value.price}}</li>-->
+      <!--<li>{{value.stk}}</li>-->
+    <!--</ul>-->
+    <div class="card" ng-repeat="(key,value) in com">
+      <div class="item item-divider">
+        {{value.cname}}
+      </div>
+      <div class="item item-text-wrap">
+        {{value.name}}
+      </div>
+      <div class="item item-divider">
+        {{value.price}}
+      </div>
+     <div class="fgh"> <a class="button button-balanced" ng-click="floak()" ng-model="value">
+          Order
+      </a>
+     </div>
+    </div>
   </ion-content>
 
 </ion-view>
